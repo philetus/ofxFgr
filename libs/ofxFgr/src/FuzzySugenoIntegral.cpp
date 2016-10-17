@@ -125,10 +125,10 @@ void FuzzySugenoIntegral::process(const cv::Mat &img_input, cv::Mat &img_output,
         img_foreground_f1.convertTo(img_foreground_u1, CV_8U, 255.0/(maxVal - minVal), -minVal);
         img_foreground_u1.copyTo(img_output);
         
-        //cv::Mat img_background_u3(img_input.size(), CV_8U);
+        cv::Mat img_background_u3(img_input.size(), CV_8U);
         //double minVal = 0., maxVal = 1.;
-        //img_background_f3.convertTo(img_background_u3, CV_8U, 255.0/(maxVal - minVal), -minVal);
-        img_background_f3.copyTo(img_bgmodel);
+        img_background_f3.convertTo(img_background_u3, CV_8U, 255.0/(maxVal - minVal), -minVal);
+        img_background_u3.copyTo(img_bgmodel);
 
         if(showOutput)
         {

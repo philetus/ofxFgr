@@ -15,7 +15,7 @@ public:
 	int camWdth, camHght;
 
 	ofxFgr::Obsrvr obs;
-	ofImage fgmsk;
+	ofImage fgmsk, bgmdl;
     
     //ofxPanel gui;
     //ofParameter<bool> resetBackground;

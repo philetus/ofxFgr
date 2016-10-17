@@ -65,13 +65,11 @@ namespace ofxFgr {
         return true;
     }
 
-    cv::Mat& Obsrvr::getForegroundMat() {
-        return foregroundMask;
-    }
+    bool Obsrvr::getBackgroundModel(ofImage & img) {
+        if (bkgmodel.empty()) return false;
 
-    ofPixels Obsrvr::getForegroundPixels() {
-        ofxCv::toOf(foregroundMask, foregroundImg);
-        return foregroundImg.getPixels();
+        ofxCv::toOf(bkgmodel, img);
+        img.update();
+        return true;
     }
-
 }

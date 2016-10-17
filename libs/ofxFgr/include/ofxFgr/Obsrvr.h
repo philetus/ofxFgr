@@ -10,33 +10,31 @@ track background and identify foreground elements in video stream
 
 namespace ofxFgr {
 
-	class Obsrvr
-	{
+    class Obsrvr
+    {
 
-	public:
+    public:
 
-		Obsrvr();
-		~Obsrvr();
+        Obsrvr();
+        ~Obsrvr();
 
-		void draw(int x=0, int y = 0);
-		void update(cv::Mat mat);
-		void update(ofPixels pixels);
+        void draw(int x=0, int y = 0);
+        void update(cv::Mat mat);
+        void update(ofPixels pixels);
 
-		ofPixels getForegroundPixels();
-		bool getForegroundMask(ofImage & img);
-		cv::Mat& getForegroundMat();
+        bool getForegroundMask(ofImage & img);
+        bool getBackgroundModel(ofImage & img);
 
-	private:
+    private:
 
-		FuzzySugenoIntegral bgs;
-		cv::Mat frame;
-		cv::Mat frameBW;
-		cv::Mat foreground;
-		cv::Mat foregroundBW;
-		cv::Mat foregroundMask;
-		cv::Mat frameMasked;
-		cv::Mat bkgmodel;
-		ofImage foregroundImg;
-	};
+        FuzzySugenoIntegral bgs;
+        cv::Mat frame;
+        cv::Mat frameBW;
+        cv::Mat foreground;
+        cv::Mat foregroundBW;
+        cv::Mat foregroundMask;
+        cv::Mat frameMasked;
+        cv::Mat bkgmodel;
+    };
 
 }

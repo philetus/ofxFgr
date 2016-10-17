@@ -4,8 +4,8 @@ using namespace ofxCv;
 using namespace cv;
 
 void ofApp::setup() {
-    camWdth = 640;
-    camHght = 480;
+    camWdth = 1280;
+    camHght = 720;
     setCam(&cam, "C920"); // try to find external webcam
 	cam.setup(camWdth, camHght);
     
@@ -37,8 +37,11 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
+    if(obs.getBackgroundModel(bgmdl)) {
+        bgmdl.draw(0, 0);
+    }
     if(obs.getForegroundMask(fgmsk)) {
-        fgmsk.draw(0, 0);
+        fgmsk.draw(camWdth, 0);
     }
 
     //obs.draw();

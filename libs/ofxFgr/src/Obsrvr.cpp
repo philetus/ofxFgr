@@ -57,9 +57,12 @@ namespace ofxFgr {
         ofPopMatrix();
     }
 
-    ofImage Obsrvr::getForegroundImage() {
-        ofxCv::toOf(foregroundMask, foregroundImg);
-        return foregroundImg;
+    bool Obsrvr::getForegroundMask(ofImage & img) {
+        if (foregroundMask.empty()) return false;
+
+        ofxCv::toOf(foregroundMask, img);
+        img.update();
+        return true;
     }
 
     cv::Mat& Obsrvr::getForegroundMat() {

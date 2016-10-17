@@ -23,7 +23,7 @@ namespace ofxFgr {
 		void update(ofPixels pixels);
 
 		ofPixels getForegroundPixels();
-		ofImage getForegroundImage();
+		bool getForegroundMask(ofImage & img);
 		cv::Mat& getForegroundMat();
 
 	private:

@@ -37,7 +37,11 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
-    obs.draw();
+    if(obs.getForegroundMask(fgmsk)) {
+        fgmsk.draw(0, 0);
+    }
+
+    //obs.draw();
     
     /*
 	cam.draw(0, 0);

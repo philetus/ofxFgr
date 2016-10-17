@@ -18,7 +18,7 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 
 
 FuzzySugenoIntegral::FuzzySugenoIntegral() : 
-    firstTime(true), frameNumber(0), showOutput(true), framesToLearn(10), 
+    firstTime(true), frameNumber(0), showOutput(false), framesToLearn(10), 
     alphaLearn(0.1), alphaUpdate(0.01), colorSpace(1), option(2), 
     smooth(true), threshold(0.67)
 {}
@@ -32,8 +32,6 @@ void FuzzySugenoIntegral::process(const cv::Mat &img_input, cv::Mat &img_output,
 
     cv::Mat img_input_f3(img_input.size(), CV_32F);
     img_input.convertTo(img_input_f3, CV_32F, 1./255.);
-
-    loadConfig();
 
     if(firstTime)
     {
@@ -54,7 +52,6 @@ void FuzzySugenoIntegral::process(const cv::Mat &img_input, cv::Mat &img_output,
         if(option == 2)
             std::cout << "Fuzzing by 2 color components + 1 texture component" << std::endl;
     
-        saveConfig();
     }
 
     if(frameNumber <= framesToLearn)
@@ -167,38 +164,4 @@ void FuzzySugenoIntegral::process(const cv::Mat &img_input, cv::Mat &img_output,
 
     firstTime = false;
     frameNumber++;
-}
-
-void FuzzySugenoIntegral::saveConfig()
-{
-    /*
-    CvFileStorage* fs = cvOpenFileStorage("./FuzzySugenoIntegral.xml", 0, CV_STORAGE_WRITE);
-
-    cvWriteInt(fs, "showOutput", showOutput);
-    cvWriteInt(fs, "framesToLearn", framesToLearn);
-    cvWriteReal(fs, "alphaLearn", alphaLearn);
-    cvWriteReal(fs, "alphaUpdate", alphaUpdate);
-    cvWriteInt(fs, "colorSpace", colorSpace);
-    cvWriteInt(fs, "option", option);
-    cvWriteInt(fs, "smooth", smooth);
-    cvWriteReal(fs, "threshold", threshold);
-
-    cvReleaseFileStorage(&fs);
-    */
-}
-
-void FuzzySugenoIntegral::loadConfig()
-{
-    //CvFileStorage* fs = cvOpenFileStorage("./FuzzySugenoIntegral.xml", 0, CV_STORAGE_READ);
-  
-    showOutput = true;
-    framesToLearn = 10;
-    alphaLearn = 0.1;
-    alphaUpdate = 0.01;
-    colorSpace = 1;
-    option = 2;
-    smooth = true;
-    threshold = 0.67;
-  
-    //cvReleaseFileStorage(&fs);
 }

@@ -26,7 +26,7 @@ namespace ofxFgr {
         //cv::dilate(foregroundMask, foregroundMask, cv::Mat(), cv::Point(-1,-1));
     }
 
-    void Obsrvr::update(ofPixelsRef pixels) {
+    void Obsrvr::update(ofPixels pixels) {
         update(ofxCv::toCv(pixels));
     }
 
@@ -66,9 +66,9 @@ namespace ofxFgr {
         return foregroundMask;
     }
 
-    ofPixelsRef Obsrvr::getForegroundPixels() {
+    ofPixels Obsrvr::getForegroundPixels() {
         ofxCv::toOf(foregroundMask, foregroundImg);
-        return foregroundImg.getPixelsRef();
+        return foregroundImg.getPixels();
     }
 
 }

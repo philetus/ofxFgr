@@ -26,7 +26,7 @@ void ofApp::update() {
     }
     */
 	if(cam.isFrameNew()) {
-        obs.update(cam.getPixelsRef());
+        obs.update(cam.getPixels());
         /*
         background.setLearningTime(learningTime);
         background.setThresholdValue(thresholdValue);

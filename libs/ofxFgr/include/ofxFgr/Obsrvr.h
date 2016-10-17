@@ -20,9 +20,9 @@ namespace ofxFgr {
 
 		void draw(int x=0, int y = 0);
 		void update(cv::Mat mat);
-		void update(ofPixelsRef pixels);
+		void update(ofPixels pixels);
 
-		ofPixelsRef getForegroundPixels();
+		ofPixels getForegroundPixels();
 		ofImage getForegroundImage();
 		cv::Mat& getForegroundMat();
 

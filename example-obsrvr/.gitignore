@@ -1,0 +1,63 @@
+# (from openframeworks .gitignore)
+
+#########################
+# general
+#########################
+
+[Bb]uild/
+[Oo]bj/
+*.o
+examples/**/[Dd]ebug*/
+examples/**/[Rr]elease*/
+examples/**/gcc-debug/
+examples/**/gcc-release/
+tests/**/[Dd]ebug*/
+tests/**/[Rr]elease*/
+tests/**/gcc-debug/
+tests/**/gcc-release/
+*.mode*
+*.app/
+*.pyc
+.svn/
+*.log
+*.cpp.eep
+*.cpp.elf
+*.cpp.hex
+
+
+#########################
+# operating system
+#########################
+
+# Linux
+*~
+# KDE
+.directory
+.AppleDouble
+
+# OSX
+.DS_Store
+bin/.DS_Store
+*.swp
+*~.nib
+# Thumbnails
+._*
+examples/ios/**/mediaAssets
+
+# Windows
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
+
+# Android
+.csettings
+/libs/openFrameworksCompiled/project/android/paths.make
+
+# Android Studio
+*.iml
+
+# for spiraltone
+
+# ignore screen grabs folder
+bin/data/grabs/*

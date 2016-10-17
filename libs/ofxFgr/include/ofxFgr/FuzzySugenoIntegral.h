@@ -20,10 +20,8 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 #include <opencv2/opencv.hpp>
 
 
-//#include "../IBGS.h"
-
+#include "ofMain.h"
 #include "ofxFgr/FuzzyUtils.h"
-
 
 class FuzzySugenoIntegral
 {
@@ -42,9 +40,6 @@ private:
 
     FuzzyUtils fu;
     cv::Mat img_background_f3;
-  
-    void saveConfig();
-    void loadConfig();
 
 public:
     FuzzySugenoIntegral();

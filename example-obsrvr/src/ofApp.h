@@ -17,7 +17,12 @@ public:
 	ofxFgr::Obsrvr obs;
 	ofImage fgmsk, bgmdl;
     
-    //ofxPanel gui;
+    ofxCv::ContourFinder contourFinder;
+    
+    ofxPanel gui;
+    ofParameter<float> minArea, maxArea, threshold;
+    ofParameter<bool> holes;    
+
     //ofParameter<bool> resetBackground;
     //ofParameter<float> learningTime, thresholdValue;
 

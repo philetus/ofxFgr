@@ -25,6 +25,11 @@ namespace ofxFgr {
         bool getForegroundMask(ofImage & img);
         bool getBackgroundModel(ofImage & img);
 
+        const std::vector<ofPolyline>& getFigures() const;
+
+        ofParameter<float> minArea, maxArea, threshold;
+        ofParameter<bool> holes;   
+
     private:
 
         FuzzySugenoIntegral bgs;
@@ -35,6 +40,9 @@ namespace ofxFgr {
         cv::Mat foregroundMask;
         cv::Mat frameMasked;
         cv::Mat bkgmodel;
+
+        ofxCv::ContourFinder fndr;
+        std::vector<ofPolyline> fgrs;
     };
 
 }

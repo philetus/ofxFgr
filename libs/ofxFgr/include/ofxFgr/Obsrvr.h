@@ -28,6 +28,7 @@ namespace ofxFgr {
         const std::vector<ofPolyline>& getFigures() const;
 
         ofParameter<float> minArea, maxArea, threshold;
+        ofParameter<int> figErode, figDilate;   
         ofParameter<bool> holes;   
 
     private:

@@ -4,10 +4,12 @@
 namespace ofxFgr {
 
     Obsrvr::Obsrvr() {
-        minArea.set("Min area", 100, 1, 500);
-        maxArea.set("Max area", 1500, 1, 2000);
+        minArea.set("min area", 60, 1, 500);
+        maxArea.set("max area", 1500, 1, 2000);
         threshold.set("Threshold", 16, 0, 255);
-        holes.set("Holes", false);
+        figErode.set("erode", 4, 1, 32);
+        figDilate.set("dilate", 20, 1, 32);
+        holes.set("holes", false);
     }
 
     Obsrvr::~Obsrvr() {}
@@ -30,8 +32,8 @@ namespace ofxFgr {
             cv::threshold(foregroundBW, foregroundMask, 30, 255, cv::THRESH_BINARY);
 
             // filter out small bits & connect fragments into larger blobs
-            cv::Mat kd = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(6, 6), cv::Point(-1,-1));
-            cv::Mat ke = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16), cv::Point(-1,-1));
+            cv::Mat kd = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(figErode, figErode), cv::Point(-1,-1));
+            cv::Mat ke = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(figDilate, figDilate), cv::Point(-1,-1));
             cv::erode(foregroundMask, foregroundMask, kd, cv::Point(-1, -1), 1, 1, 1);
             cv::dilate(foregroundMask, foregroundMask, ke, cv::Point(-1, -1), 2, 1, 1);
 

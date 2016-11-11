@@ -48,7 +48,7 @@ namespace ofxFgr {
             fgrs.clear();
             for(int i = 0; i < fndr.size(); i++){
                 ofPolyline fgr = fndr.getPolyline(i);
-                fgr.simplify(0.5);
+                fgr.simplify(0.2);
                 fgr = fgr.getSmoothed(3, 0.5);
                 fgrs.push_back(fgr);
             }
